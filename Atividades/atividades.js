@@ -234,7 +234,60 @@ function converterDiasDaSemana(){
     }
 }
 
-function paginaCobranca(){
-    const
+function calcularValorTotal(){
+    const valorProduto = parseFloat (prompt('Informe o valor do produto:'));
+    //calcular valor da forma de pagamento
+    let total = valorProduto + calcularFormaDePgmt (valorProduto);
+    console.log ('Total com forma de pagamento:'+total);
+    //calcular valo do desconto
+    total -= calcularDesconto(valorProduto);
+    console.log ('Total com cupom:'+total);
+    //calcular valo do frete
+    total+= calcularFrete();
+    alert('Total da compra: R$'+total);
 }
 
+function calcularFormaDePgmt(vlProduto){
+    const formaPgmt = parseInt (prompt ('Informa a forma de pagamento \n1 - cartão de débito \n2 - pix \n3 - cartão de crédito \n4 - boleto' ))
+    const CARTAODEB = 1, PIX = 2, CARTAOCRED = 3, BOLETO = 4;
+
+    switch (formaPgmt){
+        case CARTAODEB:
+            //5% off
+           return  - (vlProduto * 0.05);
+        case PIX:
+            //10% off
+            return  - (vlProduto * 0.1);
+        case CARTAOCRED:
+            //+ 2% 
+            return  + (vlProduto * 0.02);
+        case BOLETO:
+            // nada
+            return 0;
+    }
+}
+    function calcularDesconto(vlProduto){
+        const cupom = prompt('Você possui algum cupom? Se sim, digite-o.');
+        let valorCupom = cupom.substring(0,2);
+       if (verificarCupomValido(valorCupom)){
+        // aplicar desconto
+        return  vlProduto * (valorCupom/100);
+       } return 0;
+    }
+
+    function verificarCupomValido(valorCupom){
+        return !isNaN (valorCupom);
+    }
+
+    function calcularFrete(){
+        const tipoFrete = prompt ('Escolha o tipo de frete \n1 - Frete padrão \n2 - Frete expresso');
+        const FRETEPADRAO = 1, FRETEEXPRESSO = 2;
+        switch(tipoFrete){
+            case FRETEPADRAO:
+                return 10;
+            case FRETEEXPRESSO:
+                return 20;
+    }
+    return 0;
+
+    }
