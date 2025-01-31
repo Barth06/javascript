@@ -291,3 +291,128 @@ function calcularFormaDePgmt(vlProduto){
     return 0;
 
     }
+
+    function loopDeUmaVez(){
+        console.log('Loop com for');
+        for(let i=1; i<=10; i++){
+            console.log(i)
+        }
+
+        console.log('Loop com while');
+        let c=1;
+        while(c<=10){
+            console.log(c);
+            c++;
+        }
+    }
+
+    function loopDezAUm(){
+        console.log('loop com for');
+        for (let i=10; i>0; i--){
+        console.log(i)
+        }
+
+        console.log('Loop com while');
+        let c=10;
+        while(c>0){
+            console.log(c);
+            c--;
+    }
+
+    }
+
+    function loopParesAteDez(){
+        console.log('loop com for');
+        for (let i=0; i<=10; i+=2){
+        console.log(i)
+        }
+
+        console.log('Loop com while');
+        let c=0;
+        while(c<=10){
+            console.log(c);
+            c+=2;
+        }
+    }
+
+    function loopImparesAteDez(){
+        console.log('loop com for');
+        for (let i=1; i<=10; i+=2){
+        console.log(i)
+        }
+
+        console.log('Loop com while');
+        let c=1;
+        while(c<=10){
+            console.log(c);
+            c+=2;
+        }
+    }
+    
+    function whileBreakEContinue(){
+        let numero=0
+        while (numero!= 7){
+            numero = prompt('Informe um número')
+        if(numero==5){
+            console.log('Você achou um easter egg e pode sair do loop');
+            break;
+        }else if (numero==3){
+            console.log ('Não imprime seu número');
+            continue;
+        }
+        console.log (numero);
+        }
+    }
+
+    function pedirNota(){
+        let nota = 11;
+        while(nota < 0 || nota > 10) {
+            nota = prompt('Informe uma nota entre 0 e 10:');
+        if (nota < 0 || nota > 10){
+            alert('Nota iválida. Tente denovo');
+        }
+    }
+    alert('Nota válida');
+}
+
+function pedirNotaWhileTrue(){
+    let nota;
+    while(true){
+        nota = prompt('Informe uma nota entre 0 e 10:');
+    if (nota < 0 || nota > 10){
+        alert('Nota inválida. Tente denovo');
+    }else {
+        break;
+        }
+    }
+        alert('Nota válida');
+}
+
+function usuarioEsenha(){
+    const usuario='aninhatop';
+    const senha='anaana2';
+    let usuarioInformado;
+    let senhaInformada;
+    while(true){
+        usuarioInformado = prompt('Informe seu nome de usuário:');
+        senhaInformada = prompt('Informe sua senha:');
+    if (usuarioInformado == usuario && senhaInformada==senha ){
+        alert('Login aprovado');
+        break;
+    }else {
+        alert('Usuário ou senhas incorreta');
+        }
+    }
+}
+
+function palavrasAteParar(){
+    let palavra;
+    while(palavra!='sair'){
+        palavra=prompt('informe uma palavra');
+        if(palavra.length < 4){
+            console.log('A palavra '+palavra+' foi desconsiderada por possuir menos de tres caracteres');
+            continue;
+        }
+        console.log ('palavra válida:'+palavra);
+    }
+}
